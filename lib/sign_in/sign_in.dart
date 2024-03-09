@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
   static const routeName = "SignIn";
@@ -6,6 +7,8 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      color:Colors.red,
+    );
   }
 }
