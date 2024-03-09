@@ -58,7 +58,7 @@ class _TransitionState extends State<Transition> {
 
 List<Widget> tabs = [
   HomePage(),
-  ProfilePage(),
   FavoritePage(),
+  ProfilePage(),
   SettingsPage(),
 ];
