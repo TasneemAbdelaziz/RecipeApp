@@ -6,10 +6,13 @@ import 'package:final_project/sign_in/sign_in.dart';
 import 'package:final_project/sign_up/sign_up.dart';
 import 'package:final_project/theming.dart';
 import 'package:final_project/transition/transition.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MyApp());
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,20 +25,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Transition(),
+      home: Transition(),
       routes: {
-        SignIn.routeName:(context) => SignIn(),
-        SignUp.routeName:(context) => SignUp(),
-        Transition.routeName:(context) => Transition(),
-        FavoritePage.routeName:(context) =>  FavoritePage(),
-        ProfilePage.routeName:(context)=> ProfilePage(),
-        HomePage.routeName:(context)=> HomePage(),
-        SettingsPage.routeName:(context)=> SettingsPage(),
+        SignIn.routeName: (context) => SignIn(),
+        SignUp.routeName: (context) => SignUp(),
+        Transition.routeName: (context) => Transition(),
+        FavoritePage.routeName: (context) => FavoritePage(),
+        ProfilePage.routeName: (context) => ProfilePage(),
+        HomePage.routeName: (context) => HomePage(),
+        SettingsPage.routeName: (context) => SettingsPage(),
       },
       theme: Theming.lightTheme,
       // darkTheme: Theming.DarkTheme,
     );
-
-
-}
+  }
 }
