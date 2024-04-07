@@ -1,21 +1,21 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-void main() {
-  runApp(SignupApp());
-}
+// void main() {
+//   runApp(SignupApp());
+// }
 
-class SignupApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Signup Form',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SignupScreen(),
-    );
-  }
-}
+// class SignupApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Signup Form',
+//       // theme: ThemeData(
+//       //   primarySwatch: Colors.blue,
+//       // ),
+//       home: SignupScreen(),
+//     );
+//   }
+// }
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -32,11 +32,13 @@ class _SignupScreenState extends State<SignupScreen> {
 
 
   @override
+  //to prevent memory leaks and to clean up resources and avoid potential issues
   void dispose() {
     _emailController.dispose();
    _usernameController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
+    //ensures that the cleanup operations defined in the superclass (State class) are  executed
     super.dispose();
   }
 
@@ -48,6 +50,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
       // Perform signup operation with collected data
       print('Email: $email');
+      //print('Username: $Username');
       print('Password: $password');
     }
   }
@@ -73,7 +76,7 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Form(
               key: _formKey,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.stretch,//stretch to match column width
                 children: [
                   Container(
                     decoration: BoxDecoration(
@@ -105,7 +108,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       },
                     ),
                   ),
+
                   SizedBox(height: 20.0),
+
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -130,14 +135,15 @@ class _SignupScreenState extends State<SignupScreen> {
                       },
                     ),
                   ),
+
                   SizedBox(height: 20.0,),
+
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: Colors.grey[200],
                     ),
                     child: TextFormField(
-                      //prefixIcon: Icon(Icons.lock),
                       controller: _passwordController,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -157,6 +163,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   SizedBox(height: 20.0),
+
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -199,7 +206,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   SizedBox(height: 20,),
                   Container(
                     padding: EdgeInsets.all(10.0),
-                    //color: Colors.grey[200],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -209,7 +215,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Navigate to login screen or perform other action
+                            // Navigate to login screen
                           },
                           child: Text(
                             'Log in',
@@ -223,6 +229,24 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
 
+
+
+                  //forget password wedgit
+                  // Container(
+                  //   padding: EdgeInsets.all(10.0),
+                  //   child: TextButton(
+                  //     onPressed: () {
+                  //       // Implement Forgot Password functionality here
+                  //     },
+                  //     child: Text(
+                  //       'Forgot Password?',
+                  //       style: TextStyle(
+                  //         color: Colors.blue,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -230,6 +254,6 @@ class _SignupScreenState extends State<SignupScreen> {
         ],
       ),
     );
+
   }
 }
-
